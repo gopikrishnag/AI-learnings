@@ -1,0 +1,46 @@
+id: template_standard_flow
+name: Template Standard Flow
+inputs:
+  question:
+    type: string
+    is_chat_input: false
+outputs:
+  output:
+    type: string
+    reference: ${llm01.output}
+nodes:
+- name: llm01
+  type: llm
+  source:
+    type: code
+    path: llm01.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0.2
+    top_p: 1
+    max_tokens: 1000
+    response_format:
+      type: text
+    information: ${serp_search.output}
+    question: ${inputs.question}
+  provider: AzureOpenAI
+  connection: demoapp1740069484_aoai
+  api: chat
+  module: promptflow.tools.aoai
+  use_variants: false
+- name: serp_search
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.serpapi.SerpAPI.search
+  inputs:
+    connection: serp-connection
+    engine: google
+    location: ""
+    num: 5
+    query: ${inputs.question}
+    safe: off
+  use_variants: false
+node_variants: {}
+environment:
+  python_requirements_txt: requirements.txt
