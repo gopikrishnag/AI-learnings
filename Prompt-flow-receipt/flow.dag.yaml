@@ -1,0 +1,31 @@
+id: template_standard_flow
+name: Template Standard Flow
+inputs:
+  photo:
+    type: image
+    is_chat_input: false
+outputs:
+  output:
+    type: string
+    reference: ${vision_receipt.output}
+nodes:
+- name: vision_receipt
+  type: custom_llm
+  source:
+    type: package_with_prompt
+    path: vision_receipt.jinja2
+    tool: promptflow.tools.aoai_gpt4v.AzureOpenAI.chat
+  inputs:
+    connection: gopi-m6nspikd-swedencentral_aoai
+    deployment_name: gpt-4
+    temperature: 1
+    top_p: 1
+    max_tokens: 1000
+    presence_penalty: 0
+    frequency_penalty: 0
+    detail: auto
+    image_input: ${inputs.photo}
+  use_variants: false
+node_variants: {}
+environment:
+  python_requirements_txt: requirements.txt

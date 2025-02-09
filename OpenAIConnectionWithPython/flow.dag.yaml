@@ -1,0 +1,23 @@
+id: template_standard_flow
+name: Template Standard Flow
+inputs:
+  question:
+    type: string
+    is_chat_input: false
+outputs:
+  output:
+    type: string
+    reference: ${directllm.output}
+nodes:
+- name: directllm
+  type: python
+  source:
+    type: code
+    path: directllm.py
+  inputs:
+    conn: demoapp1740069484_aoai
+    input1: ${inputs.question}
+  use_variants: false
+node_variants: {}
+environment:
+  python_requirements_txt: requirements.txt
