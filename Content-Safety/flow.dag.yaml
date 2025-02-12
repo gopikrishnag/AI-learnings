@@ -1,0 +1,55 @@
+id: template_standard_flow
+name: Template Standard Flow
+inputs:
+  question:
+    type: string
+    is_chat_input: false
+outputs:
+  output:
+    type: string
+    reference: ${llmgpt.output}
+nodes:
+- name: llmgpt
+  type: llm
+  source:
+    type: code
+    path: llmgpt.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 1
+    top_p: 1
+    response_format:
+      type: text
+    question: ${inputs.question}
+  provider: AzureOpenAI
+  connection: demoapp1740069484_aoai
+  api: chat
+  module: promptflow.tools.aoai
+  activate:
+    when: ${fillter_Trigger.output}
+    is: true
+  use_variants: false
+- name: SafetyAnalyser01
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.azure_content_safety.analyze_text
+  inputs:
+    connection: AIConentSafety01
+    hate_category: high_sensitivity
+    self_harm_category: high_sensitivity
+    sexual_category: high_sensitivity
+    text: ${inputs.question}
+    violence_category: medium_sensitivity
+  use_variants: false
+- name: fillter_Trigger
+  type: python
+  source:
+    type: code
+    path: fillter_Trigger.py
+  inputs:
+    input1: ${SafetyAnalyser01.output}
+  use_variants: false
+node_variants: {}
+environment:
+  python_requirements_txt: requirements.txt
