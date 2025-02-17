@@ -1,8 +1,7 @@
 Azure-AI-Agent-Bing/C-Sharp/AI-Agent/.idea 
 Azure-AI-Agent-Bing/C-Sharp/AI-Agent/AI-Agent/bin
 Azure-AI-Agent-Bing/C-Sharp/AI-Agent/AI-Agent/obj
-Azure-AI-Agent-Bing/venv
+*/venv
 Azure-AI-Agent-Bing/__pycache__/user_functions.cpython-311.pyc
-Azure-AI-Agent-with-RAG/venv
-Azure-AI-Agent-Bing/.env
-Azure-AI-Agent-with-RAG/.env
+*/.env
+
