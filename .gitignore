@@ -4,4 +4,11 @@ Azure-AI-Agent-Bing/C-Sharp/AI-Agent/AI-Agent/obj
 */venv
 Azure-AI-Agent-Bing/__pycache__/user_functions.cpython-311.pyc
 */.env
+MCP-Framework/server/__pycache__
+ 
 
+Doctor-Appointment-MultiAgents/__pycache__
+Doctor-Appointment-MultiAgents/data_models/__pycache__
+Doctor-Appointment-MultiAgents/prompt_library/__pycache__ 
+Doctor-Appointment-MultiAgents/toolkit/__pycache__ 
+Doctor-Appointment-MultiAgents/utils/__pycache__ 

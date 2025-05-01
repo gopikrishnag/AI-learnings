@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: doctor-appointment-multiagents
+Version: 0.1.0
+Summary: Add your description here
+Author: Gopi Govind
+Author-email: 
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: requires-python

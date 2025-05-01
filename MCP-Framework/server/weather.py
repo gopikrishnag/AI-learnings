@@ -1,8 +1,8 @@
 from typing import Any
 import httpx
 from mcp.server.fastmcp import FastMCP
-
-# uv run mcp dev server/weather.py 
+# uv venv
+# un mcp dev server/weather.py 
 # uv run mcp install server/weather.py
 
 
