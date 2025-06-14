@@ -12,3 +12,5 @@ Doctor-Appointment-MultiAgents/data_models/__pycache__
 Doctor-Appointment-MultiAgents/prompt_library/__pycache__ 
 Doctor-Appointment-MultiAgents/toolkit/__pycache__ 
 Doctor-Appointment-MultiAgents/utils/__pycache__ 
+ai-integrated-react-app-with-auth/backend/src/.env
+ai-integrated-react-app-with-auth/frontend/.env
