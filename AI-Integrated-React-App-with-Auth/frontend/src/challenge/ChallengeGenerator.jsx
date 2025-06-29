@@ -75,7 +75,7 @@ export function ChallengeGenerator() {
 
         <button
             onClick={generateChallenge}
-            disabled={isLoading || quota?.quota_remaining === 10}
+            disabled={isLoading || quota?.quota_remaining === 0}
             className="generate-button"
         >
             {isLoading ? "Generating..." : "Generate Challenge"}
